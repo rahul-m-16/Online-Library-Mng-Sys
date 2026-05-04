@@ -1,0 +1,68 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: {
+        sans:    ['"DM Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Bricolage Grotesque"', '"DM Sans"', 'sans-serif'],
+        mono:    ['"JetBrains Mono"', 'monospace'],
+      },
+      colors: {
+        ink: {
+          50:  '#f0f2ff',
+          100: '#e5e8ff',
+          200: '#cdd3ff',
+          300: '#aab3ff',
+          400: '#8289ff',
+          500: '#5c5fff',
+          600: '#4338f5',
+          700: '#3829e1',
+          800: '#2e22b6',
+          900: '#291f90',
+          950: '#181254',
+        },
+        surface: {
+  0:   '#ffffff',
+  50:  '#f9fafb',
+  100: '#f3f4f8',
+  200: '#e8eaf2',
+  300: '#d2d5e5',
+  400: '#9ca3af',
+  500: '#6b7280',
+  600: '#4b5563',
+  700: '#374151',
+  800: '#1e2035',
+  900: '#141627',
+  950: '#0d0f1e',
+},
+      },
+      boxShadow: {
+        'card':     '0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06)',
+        'card-lg':  '0 8px 24px rgba(0,0,0,0.10)',
+        'glow':     '0 0 20px rgba(92,95,255,0.25)',
+        'glow-lg':  '0 0 40px rgba(92,95,255,0.35)',
+      },
+      animation: {
+        'fade-up':    'fadeUp 0.4s cubic-bezier(0.16,1,0.3,1) both',
+        'fade-in':    'fadeIn 0.3s ease both',
+        'slide-left': 'slideLeft 0.35s cubic-bezier(0.16,1,0.3,1) both',
+        'pop':        'pop 0.25s cubic-bezier(0.34,1.56,0.64,1) both',
+        'shimmer':    'shimmer 1.8s linear infinite',
+        'scan':       'scan 2s linear infinite',
+        'pulse-ring': 'pulseRing 2s ease infinite',
+      },
+      keyframes: {
+        fadeUp:    { from: { opacity: '0', transform: 'translateY(16px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
+        fadeIn:    { from: { opacity: '0' },                                to: { opacity: '1' } },
+        slideLeft: { from: { opacity: '0', transform: 'translateX(-12px)' },to: { opacity: '1', transform: 'translateX(0)' } },
+        pop:       { from: { opacity: '0', transform: 'scale(0.9)' },       to: { opacity: '1', transform: 'scale(1)' } },
+        shimmer:   { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+        scan:      { '0%': { top: '4%' }, '50%': { top: '88%' }, '100%': { top: '4%' } },
+        pulseRing: { '0%,100%': { opacity: '1', transform: 'scale(1)' }, '50%': { opacity: '0.5', transform: 'scale(1.05)' } },
+      },
+    },
+  },
+  plugins: [],
+}
