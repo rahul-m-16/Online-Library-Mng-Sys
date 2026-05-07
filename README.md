@@ -63,7 +63,6 @@ A full-stack, production-ready Library Management System built with **MongoDB**,
 
 ## 🗂 Project Structure
 
-```
 lms-mern/
 ├── backend/
 │   ├── config/
@@ -126,8 +125,6 @@ lms-mern/
     ├── tailwind.config.js
     └── package.json
 ```
-
----
 
 ## 🚀 Getting Started
 
