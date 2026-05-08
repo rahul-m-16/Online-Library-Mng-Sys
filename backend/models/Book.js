@@ -30,7 +30,6 @@ bookSchema.virtual('issued').get(function () {
   return this.quantity - this.available;
 });
 
-// Text index for search
 bookSchema.index({ title: 'text', author: 'text', isbn: 'text' });
 
 module.exports = mongoose.model('Book', bookSchema);
