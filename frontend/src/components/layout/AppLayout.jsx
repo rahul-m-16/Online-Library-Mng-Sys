@@ -31,7 +31,7 @@ export default function AppLayout() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-surface-50 dark:bg-surface-950 flex">
+    <div className="min-h-screen bg-surface-100 dark:bg-surface-950 flex">
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
@@ -57,7 +57,7 @@ export default function AppLayout() {
           onToggleDark={() => setDarkMode(p => !p)}
         />
 
-        <main className="flex-1 p-4 lg:p-8 page-enter">
+        <main className="flex-1 p-4 lg:p-8 page-enter bg-surface-100 dark:bg-surface-950 min-h-screen">
           <Outlet context={{ darkMode }} />
         </main>
       </div>
