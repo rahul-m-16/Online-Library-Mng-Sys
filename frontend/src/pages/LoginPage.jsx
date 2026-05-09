@@ -118,13 +118,6 @@ export default function LoginPage() {
           <h2 className="font-display text-xl font-bold text-white mb-1">Welcome back</h2>
           <p className="text-surface-400 text-sm mb-6">Sign in to your admin account</p>
 
-          {/* Demo hint */}
-          <div className="mb-5 p-3 rounded-xl bg-ink-950/60 border border-ink-800/40 text-xs text-ink-300">
-            <span className="font-bold text-ink-200">Demo:</span>
-            &nbsp; admin / <span className="font-mono">Admin@1234</span>
-            &nbsp;·&nbsp; librarian / <span className="font-mono">Lib@12345</span>
-          </div>
-
           {errors.submit && (
             <div className="mb-4 p-3 rounded-xl bg-red-950/40 border border-red-800/40 text-sm text-red-300">
               {errors.submit}
@@ -139,7 +132,7 @@ export default function LoginPage() {
                 type="text"
                 value={form.username}
                 onChange={e => { setForm(f => ({ ...f, username: e.target.value })); setErrors(er => ({ ...er, username: '' })) }}
-                placeholder="admin"
+                placeholder="Enter your username"
                 autoComplete="username"
                 className={`input bg-surface-800/60 border-surface-600/40 text-white placeholder:text-surface-500 focus:border-ink-400
                   ${errors.username ? 'border-red-500 focus:border-red-400' : ''}`}
