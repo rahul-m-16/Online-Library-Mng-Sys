@@ -59,7 +59,9 @@ export default function Topbar({ onToggleSidebar, darkMode, onToggleDark }) {
   return (
     <header className="h-16 sticky top-0 z-10 glass border-b border-surface-200 dark:border-surface-800 flex items-center gap-3 px-4 lg:px-6">
       {/* Sidebar toggle */}
-      
+      <button onClick={onToggleSidebar} className="btn-icon flex-shrink-0" aria-label="Toggle sidebar">
+        <Menu className="w-5 h-5" />
+      </button>
 
       {/* Global search */}
       <div className="flex-1 max-w-md relative" ref={searchRef}>
