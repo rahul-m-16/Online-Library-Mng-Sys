@@ -1,272 +1,250 @@
-# 📖 LibraryOS — MERN Stack Library Management System
+# 📚 Online Library Management System — MERN Stack Library Management System
 
-A full-stack, production-ready Library Management System built with **MongoDB**, **Express**, **React** (Vite), and **Node.js**.
+A full-stack web application developed using **MongoDB**, **Express.js**, **React.js**, and **Node.js** to efficiently manage library operations including book management, student records, book issue/return, and administrative activities through a modern and responsive dashboard.
 
 ---
 
 ## ✨ Features
 
 ### 🔐 Authentication
-- JWT-based login with role support (Admin / Librarian)
-- Password strength validation (uppercase, number, special char)
-- Show/hide password toggle
-- Forgot password UI (mock)
-- Protected routes with token persistence
+- Secure user authentication
+- JWT-based authorization
+- Password encryption using bcryptjs
+- Protected routes
+- Persistent user sessions
 
 ### 📊 Dashboard
-- Live statistics: Total Books, Issued, Available, Students
-- Issue trend line chart (Chart.js)
-- Category distribution doughnut chart
-- Overdue alerts and quick actions
+- Library overview with key statistics
+- Total Books
+- Available Books
+- Issued Books
+- Registered Students
+- Recent Activities
+- Quick Navigation Cards
 
 ### 📚 Book Management
-- Add / Edit / Delete books with full validation
-- Search by title, author, ISBN
-- Filter by category and availability
-- Pagination and sorting
-- ISBN barcode scan simulation (autofill)
-- Book detail page with issue history
+- Add new books
+- Update book details
+- Delete books
+- Search books by title, author, or ISBN
+- Filter books by category
+- Book availability tracking
 
-### 🎓 Student Management
-- Add / Edit / Delete students
-- Search by name, register number, email
-- Filter by department and status
-- Student profile with active borrows and fine history
+### 👨‍🎓 Student Management
+- Register new students
+- Update student information
+- Delete student records
+- Search students
+- Student borrowing history
+- Active issue tracking
 
-### 🔄 Issue & Return
-- 3-step Issue Book wizard (student → book → confirm)
-- Configurable loan period (7/14/21/30 days)
-- Return Book with automatic fine calculation (₹5/day overdue)
-- Status tracking: issued / overdue / returned
+### 🔄 Book Issue & Return
+- Issue books to students
+- Return issued books
+- Due date tracking
+- Issue history
+- Book availability updates
+- Borrow status management
 
-### 📷 Barcode Scanner
-- Live camera integration (real device)
-- Animated scan line UI
-- Manual ISBN entry fallback
-- Demo scan with random ISBN
-- Scan history panel
-
-### 📊 Reports & Analytics
-- Return rate, total fines, overdue count
-- Category bar chart
-- Monthly issue trend
-- Full issues export to CSV
+### 📈 Reports & Analytics
+- Total issued books
+- Available books analysis
+- Student borrowing statistics
+- Monthly issue reports
+- Book category distribution
+- CSV Export
 
 ### ⚙️ Settings
-- Dark / Light mode toggle (persisted)
-- Library policy config (fine rate, loan days, max books)
-- Notification toggles
-- Change password
-- System info
+- User Profile Management
+- Account Settings
+- Theme Preferences
+- System Configuration
 
 ---
 
 ## 🗂 Project Structure
 
-lms-mern/
+```text
+Online-Library-Management-System/
 ├── backend/
 │   ├── config/
-│   │   ├── db.js           # MongoDB connection
-│   │   └── seed.js         # Database seeder
 │   ├── controllers/
-│   │   ├── authController.js
-│   │   ├── bookController.js
-│   │   ├── studentController.js
-│   │   └── issueController.js
 │   ├── middleware/
-│   │   ├── auth.js         # JWT protect + role authorize
-│   │   └── errorHandler.js
 │   ├── models/
 │   │   ├── User.js
 │   │   ├── Book.js
 │   │   ├── Student.js
-│   │   └── Issue.js
+│   │   ├── Issue.js
+│   │   └── Category.js
 │   ├── routes/
-│   │   ├── auth.js
-│   │   ├── books.js
-│   │   ├── students.js
-│   │   └── issues.js
-│   ├── .env
+│   ├── services/
+│   ├── utils/
 │   ├── server.js
 │   └── package.json
 │
 └── frontend/
     ├── src/
-    │   ├── api/
-    │   │   └── axios.js        # Axios instance with JWT interceptors
+    │   ├── assets/
     │   ├── components/
-    │   │   ├── common/
-    │   │   │   └── index.jsx   # Reusable UI components
-    │   │   └── layout/
-    │   │       ├── AppLayout.jsx
-    │   │       ├── Sidebar.jsx
-    │   │       ├── Topbar.jsx
-    │   │       └── ProtectedRoute.jsx
-    │   ├── context/
-    │   │   └── AuthContext.jsx
+    │   ├── contexts/
     │   ├── hooks/
-    │   │   └── index.js        # useFetch, useForm, useModal, etc.
+    │   ├── layouts/
     │   ├── pages/
-    │   │   ├── LoginPage.jsx
-    │   │   ├── Dashboard.jsx
+    │   │   ├── Login/
+    │   │   ├── Dashboard/
     │   │   ├── Books/
     │   │   ├── Students/
-    │   │   ├── Issues/
-    │   │   ├── Scanner/
+    │   │   ├── IssueReturn/
     │   │   ├── Reports/
     │   │   └── Settings/
+    │   ├── services/
     │   ├── utils/
-    │   │   └── helpers.js
     │   ├── App.jsx
-    │   ├── main.jsx
-    │   └── index.css
-    ├── index.html
+    │   └── main.jsx
     ├── vite.config.js
     ├── tailwind.config.js
     └── package.json
 ```
 
-## 🚀 Getting Started
+---
 
-### Prerequisites
-- **Node.js** v18 or higher
-- **MongoDB** running locally (`mongodb://127.0.0.1:27017`) or a MongoDB Atlas URI
-- **npm** v9 or higher
+## 🔄 Application Workflow
+
+```text
+User Login
+      │
+      ▼
+Authentication (JWT)
+      │
+      ▼
+Dashboard
+      │
+ ┌────┼───────────┬─────────────┐
+ ▼    ▼           ▼             ▼
+Books Students Issue/Return Reports
+      │
+      ▼
+Library Database
+      │
+      ▼
+Dashboard Analytics
+      │
+      ▼
+Library Reports
+```
 
 ---
 
-### 1. Clone / Extract the project
+## 🌐 Core Modules
 
-```bash
-cd lms-mern
-```
+### Authentication
+- User Login
+- JWT Authentication
+- Protected Routes
+- Password Encryption
 
-### 2. Install dependencies
+### Dashboard
+- Library Statistics
+- Recent Activities
+- Quick Summary Cards
 
-```bash
-# Backend
-cd backend && npm install
+### Book Management
+- Add Books
+- Edit Books
+- Delete Books
+- Search & Filter
+- Availability Tracking
 
-# Frontend
-cd ../frontend && npm install
-```
+### Student Management
+- Student Registration
+- Student Details
+- Borrowing History
+- Active Issues
 
-### 3. Configure environment
+### Issue & Return
+- Book Issue
+- Book Return
+- Due Date Tracking
+- Borrow Records
 
-Edit `backend/.env` and update `MONGO_URI` if needed:
-```env
-PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/library_management
-JWT_SECRET=your_super_secret_key_here
-JWT_EXPIRE=7d
-NODE_ENV=development
-FINE_PER_DAY=5
-```
-
-### 4. Seed the database
-
-```bash
-cd backend && npm run seed
-```
-
-This creates:
-- 2 users (admin + librarian)
-- 12 books
-- 8 students
-- 8 issue records
-
-### 5. Run the application
-
-**Terminal 1 — Backend:**
-```bash
-cd backend && npm run dev
-# Runs on http://localhost:5000
-```
-
-**Terminal 2 — Frontend:**
-```bash
-cd frontend && npm run dev
-# Runs on http://localhost:5173
-```
-
-Open **http://localhost:5173** in your browser.
-
----
-
-## 🔑 Login Credentials
-
-| Role       | Username    | Password    |
-|------------|-------------|-------------|
-| Admin      | `admin`     | `Admin@1234`|
-| Librarian  | `librarian` | `Lib@12345` |
-
----
-
-## 🌐 API Endpoints
-
-### Auth
-| Method | Endpoint                    | Description          |
-|--------|-----------------------------|----------------------|
-| POST   | `/api/auth/login`           | Login                |
-| GET    | `/api/auth/me`              | Get current user     |
-| PUT    | `/api/auth/change-password` | Change password      |
-
-### Books
-| Method | Endpoint                  | Description          |
-|--------|---------------------------|----------------------|
-| GET    | `/api/books`              | List (search/filter) |
-| GET    | `/api/books/:id`          | Get single book      |
-| GET    | `/api/books/isbn/:isbn`   | Lookup by ISBN       |
-| POST   | `/api/books`              | Create book          |
-| PUT    | `/api/books/:id`          | Update book          |
-| DELETE | `/api/books/:id`          | Delete book          |
-
-### Students
-| Method | Endpoint             | Description          |
-|--------|----------------------|----------------------|
-| GET    | `/api/students`      | List (search/filter) |
-| GET    | `/api/students/:id`  | Get with issues      |
-| POST   | `/api/students`      | Create student       |
-| PUT    | `/api/students/:id`  | Update student       |
-| DELETE | `/api/students/:id`  | Delete student       |
-
-### Issues
-| Method | Endpoint                  | Description          |
-|--------|---------------------------|----------------------|
-| GET    | `/api/issues`             | List all issues      |
-| GET    | `/api/issues/stats`       | Dashboard stats      |
-| POST   | `/api/issues`             | Issue a book         |
-| PUT    | `/api/issues/:id/return`  | Return a book        |
+### Reports
+- Library Summary
+- Book Reports
+- Student Reports
+- CSV Export
 
 ---
 
 ## 🛠 Tech Stack
 
-| Layer     | Technology                          |
-|-----------|-------------------------------------|
-| Database  | MongoDB + Mongoose                  |
-| Backend   | Node.js + Express.js                |
-| Auth      | JWT + bcryptjs                      |
-| Frontend  | React 18 + Vite                     |
-| Routing   | React Router v6                     |
-| Styling   | Tailwind CSS v3 (dark mode)         |
-| Charts    | Chart.js + react-chartjs-2          |
-| HTTP      | Axios (with JWT interceptors)       |
-| Toasts    | react-hot-toast                     |
-| Icons     | Lucide React                        |
+| Layer | Technology |
+|---------|------------|
+| Database | MongoDB + Mongoose |
+| Backend | Node.js + Express.js |
+| Authentication | JWT + bcryptjs |
+| Frontend | React.js + Vite |
+| State Management | Context API |
+| Styling | Tailwind CSS |
+| Charts | Chart.js |
+| HTTP Client | Axios |
+| Deployment | Vercel + Render |
 
 ---
 
-## 📝 Notes
+## 🔒 Security Features
 
-- The Vite dev server proxies all `/api` requests to `http://localhost:5000`
-- Dark mode preference is saved to `localStorage`
-- JWT token is stored in `localStorage` and attached via Axios interceptor
-- Fine calculation: ₹5 per overdue day (configurable in `.env` via `FINE_PER_DAY`)
-- Barcode scanner uses the browser's `getUserMedia` API (requires HTTPS or localhost)
+- JWT Authentication
+- Password Hashing using bcryptjs
+- Protected API Routes
+- Secure User Sessions
+- Environment Variable Configuration
+- Role-Based Access Control (Admin/User)
 
 ---
 
-## 📄 License
+## 📊 Database Collections
 
-MIT © 2024 LibraryOS
+- Users
+- Books
+- Students
+- Issues
+- Categories
+
+---
+
+## 📈 Future Enhancements
+
+- Barcode Scanner Integration
+- QR Code-Based Book Issue
+- Email Notifications
+- Online Book Reservation
+- Fine Management System
+- AI Book Recommendation
+- Mobile Application
+- Digital Library Support
+
+---
+
+## 🌐 Project Highlights
+
+- Full Stack MERN Application
+- Responsive User Interface
+- Library Inventory Management
+- Student Management System
+- Book Issue & Return Tracking
+- Interactive Dashboard
+- Secure Authentication
+- RESTful API Architecture
+- Cloud-Ready Architecture
+
+---
+
+## 👨‍💻 Author
+
+**Rahul Sanjeev Madagoud**
+
+Master of Computer Applications (MCA)
+
+Jain College of Engineering, Belagavi
+
+Email: **rahulmadagoud@gmail.com**
