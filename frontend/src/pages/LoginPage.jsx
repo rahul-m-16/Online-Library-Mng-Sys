@@ -116,7 +116,27 @@ export default function LoginPage() {
         {/* Card */}
         <div className="card bg-surface-900/60 border-surface-700/50 backdrop-blur-xl p-8 shadow-[0_32px_64px_rgba(0,0,0,0.4)]">
           <h2 className="font-display text-xl font-bold text-white mb-1">Welcome back</h2>
-          <p className="text-surface-400 text-sm mb-6">Sign in to your admin account</p>
+          <p className="text-surface-400 text-sm mb-4">Sign in to your admin account</p>
+
+          {/* Demo credentials */}
+          <div className="mb-5 p-3 rounded-xl bg-ink-900/40 border border-ink-700/40 text-xs text-surface-300 space-y-1">
+            <p className="text-ink-300 font-semibold mb-1.5">Demo Credentials</p>
+            <div className="flex items-center justify-between">
+              <span className="text-surface-500">Username</span>
+              <button type="button" onClick={() => setForm(f => ({ ...f, username: 'admin' }))}
+                className="font-mono text-white hover:text-ink-300 transition-colors cursor-pointer">
+                admin
+              </button>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-surface-500">Password</span>
+              <button type="button" onClick={() => setForm(f => ({ ...f, password: 'Admin@1234' }))}
+                className="font-mono text-white hover:text-ink-300 transition-colors cursor-pointer">
+                Admin@1234
+              </button>
+            </div>
+            <p className="text-surface-600 pt-1">Click a value to auto-fill</p>
+          </div>
 
           {errors.submit && (
             <div className="mb-4 p-3 rounded-xl bg-red-950/40 border border-red-800/40 text-sm text-red-300">
